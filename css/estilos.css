@@ -42,6 +42,10 @@ nav ul li a {
   font-weight: bold;
 }
 
+h3{
+  color: #0077cc;
+  text-align: center;
+}
 /* Secciones generales */
 .bloque {
   padding: 2rem 0;
@@ -78,6 +82,19 @@ nav ul li a {
   height: auto;
   margin: 1rem auto;
   border-radius: 8px;
+}
+.fotoLibroIndex{
+  display: block;
+  max-width: 200px; /* o 100% si preferís que nunca se pase del ancho del contenedor */
+  width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 8px;
+}
+.tituloLibroIndex {
+  font-size: 1.5rem;
+  color: #0077cc;
+  text-align: center;
 }
 /* Responsive para móviles */
 @media (max-width: 768px) {
