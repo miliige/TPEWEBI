@@ -46,6 +46,27 @@ h3{
   color: #0077cc;
   text-align: center;
 }
+/*Bienvenida*/
+ #inicio {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+  }
+
+  #inicio h2 {
+    font-family: "Brush Script MT", cursive, sans-serif;
+    font-size: 52px;
+    margin-bottom: 20px;
+    color: #2c2c2c;
+  }
+
+  #inicio p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #444;
+    line-height: 1.6;
+  }
 /* Secciones generales */
 .bloque {
   padding: 2rem 0;
@@ -77,7 +98,7 @@ h3{
 }
 .fotoLibro {
  display: block;
-  max-width: 300px; /* o 100% si preferís que nunca se pase del ancho del contenedor */
+  max-width: 300px; 
   width: 100%;
   height: auto;
   margin: 1rem auto;
@@ -85,7 +106,7 @@ h3{
 }
 .fotoLibroIndex{
   display: block;
-  max-width: 200px; /* o 100% si preferís que nunca se pase del ancho del contenedor */
+  max-width: 200px; 
   width: 100%;
   height: auto;
   margin: 1rem auto;
@@ -151,4 +172,9 @@ footer {
 
 .formulario-contacto button:hover {
   background-color: #bbb;
+}
+
+/*Tabla de valor de suscripciones*/
+.tabla-suscripciones {
+  overflow-x: auto;
 }
