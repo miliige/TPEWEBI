@@ -1,47 +1,53 @@
-let captchaCorrectAnswer = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    const captchaDiv = document.getElementById('captcha');
+    const captchaInput = document.getElementById('captcha-input');
+    const captchaError = document.querySelector('#captcha-contenedor .error-message');
+    const generarCaptchaBtn = document.getElementById('generar-captcha');
+    const captchaResultadoDiv = document.getElementById('captcha-resultado');
+    const enviarBtn = document.getElementById('enviar-btn');
+    const formContacto = document.getElementById('form-contacto');
 
-  function generateCaptcha() {
-    const num1 = Math.floor(Math.random() * 10) + 1;
-    const num2 = Math.floor(Math.random() * 10) + 1;
-    captchaCorrectAnswer = num1 + num2;
+    let codigoCaptcha;
 
-    document.getElementById('captcha-question').textContent = `${num1} + ${num2} = ?`;
-  }
-
-  function validateCaptchaInput() {
-    const userInput = parseInt(document.getElementById('captcha-answer').value);
-    const status = document.getElementById('captcha-status');
-    const submitBtn = document.getElementById('submitBtn');
-
-    if (!isNaN(userInput) && userInput === captchaCorrectAnswer) {
-      status.textContent = "✅ Respuesta correcta.";
-      status.style.color = "green";
-    } else {
-      status.textContent = "❌ Respuesta incorrecta. Intenta nuevamente.";
-      status.style.color = "red";
+    function generarCaptcha() {
+        codigoCaptcha = Math.floor(Math.random() * 9000) + 1000; // Genera un número de 4 dígitos al azar
+        captchaDiv.textContent = codigoCaptcha;
+        captchaResultadoDiv.textContent = '';
+        captchaResultadoDiv.className = '';
+        enviarBtn.disabled = true; // Deshabilitar el botón al generar un nuevo captcha
+        captchaInput.value = '';
+        captchaError.style.display = 'none';
     }
-  }
 
-  // Validar al escribir
-  document.addEventListener('DOMContentLoaded', () => {
-    generateCaptcha();
-    document.getElementById('captcha-answer').addEventListener('input', validateCaptchaInput);
-  });
-
-  // Evitar que el formulario se envíe si el CAPTCHA es incorrecto
-  document.getElementById('contactForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Evita el envío por defecto
-    const userInput = parseInt(document.getElementById('captcha-answer').value);
-    const result = document.getElementById('form-result');
-
-    if (userInput === captchaCorrectAnswer) {
-      result.style.color = 'green';
-      result.textContent = '✅ Formulario enviado correctamente. ¡Gracias por tu mensaje!';
-      this.reset(); // Opcional: limpia los campos del formulario
-      generateCaptcha(); // Regenera un nuevo captcha
-      document.getElementById('captcha-status').textContent = '';
-    } else {
-      result.style.color = 'red';
-      result.textContent = '❌ La respuesta al CAPTCHA es incorrecta. Intenta nuevamente.';
+    function validarCaptcha() {
+        if (captchaInput.value === codigoCaptcha.toString()) {
+            captchaResultadoDiv.textContent = '¡CAPTCHA CORRECTO!';
+            captchaResultadoDiv.className = 'correcto';
+            enviarBtn.disabled = false; // Habilitar el botón si el captcha es correcto
+            captchaError.style.display = 'none';
+            return true;
+        } else {
+            captchaResultadoDiv.textContent = 'Captcha incorrecto.';
+            captchaResultadoDiv.className = 'incorrecto';
+            captchaError.style.display = 'block';
+            enviarBtn.disabled = true; // Asegurarse de que el botón esté deshabilitado si es incorrecto
+            return false;
+        }
     }
-  });
+
+    generarCaptcha(); // Generar el primer captcha al cargar la página
+
+    generarCaptchaBtn.addEventListener('click', generarCaptcha);
+
+    formContacto.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar el envío por defecto
+
+        if (!enviarBtn.disabled) {
+          
+            location.reload();
+        } 
+    });
+
+    // Opcional: Puedes agregar un evento para validar el captcha mientras se escribe
+    captchaInput.addEventListener('input', validarCaptcha);
+});

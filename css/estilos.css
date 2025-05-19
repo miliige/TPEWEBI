@@ -117,6 +117,33 @@ h3{
   color: #0077cc;
   text-align: center;
 }
+/* captcha */
+#captcha-contenedor button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.captcha-resultado {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    display: none;
+}
+#enviar-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#enviar-btn:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
 /* Responsive para móviles */
 @media (max-width: 768px) {
   .libro {

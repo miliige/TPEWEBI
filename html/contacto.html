@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contacto - Biblioteca Virtual</title>
-  <link rel="stylesheet" href="/css/estilos.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contacto - Biblioteca Virtual</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+    <link rel="stylesheet" href="/css/contacto.css" />
 </head>
 <body>
-  <header>
-  <header>
-    <h1>Biblioteca Virtual</h1>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="/html/suscripciones.html">Suscripciones</a></li>
-        <li><a href="/html/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <h1>Biblioteca Virtual</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="/html/suscripciones.html">Suscripciones</a></li>
+                <li><a href="/html/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main class="bloque">
-    <h2>Escríbenos</h2>
-    <form id="form-contacto" action="#" method="post" class="formulario-contacto">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required />
+    <main class="bloque">
+        <h2>Escríbenos</h2>
+        <form id="form-contacto" action="#" method="post" class="formulario-contacto">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required />
 
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required />
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required />
 
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
-      <!-- CAPTCHA PERSONALIZADO -->
-      <div id="captcha-contenedor">
-        <label for="captcha-input">Verificación:</label>
-        <div id="captcha"></div>
-        <input type="text" id="captcha-input" name="captcha" placeholder="Escribí el código" required />
-        <span id="captcha-error" style="color: red; display: none;">Captcha incorrecto.</span>
-      </div>
+            <div id="captcha-contenedor">
+                <label for="captcha-input">Verificación:</label>
+                <div id="captcha"></div>
+                <input type="text" id="captcha-input" name="captcha" placeholder="Escribí el código" required />
+                <span id="captcha-error" class="error-message">Captcha incorrecto.</span>
+                <button type="button" id="generar-captcha">Generar otro código</button>
+                <div id="captcha-resultado" class="captcha-resultado"></div>
+            </div>
 
-      <button type="submit">Enviar</button>
-    </form>
-  </main>
+            <button type="submit" id="enviar-btn" disabled>Enviar</button>
+        </form>
+    </main>
 
-  <footer>
-    <p>© 2025 Biblioteca Virtual. Todos los derechos reservados.</p>
-  </footer>
+    <footer>
+        <p>© 2025 Biblioteca Virtual. Todos los derechos reservados.</p>
+    </footer>
 
-  <!-- Tu script va a ir acá -->
-  <script src="/javascript/captcha.js"></script>
+    <script src="/javascript/script.js"></script>
 </body>
 </html>
